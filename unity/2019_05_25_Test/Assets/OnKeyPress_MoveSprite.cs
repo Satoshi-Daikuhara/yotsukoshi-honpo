@@ -11,6 +11,15 @@ public class OnKeyPress_MoveSprite : MonoBehaviour
     float vy = 0;
 
     bool leftFlag = false;
+    Rigidbody2D rbody;
+
+    private void Start()
+    {
+        // 重力を0にして衝突時に回転させない
+        rbody = GetComponent<Rigidbody2D>();
+        rbody.gravityScale = 0;
+        rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
 
     private void Update()
     {
